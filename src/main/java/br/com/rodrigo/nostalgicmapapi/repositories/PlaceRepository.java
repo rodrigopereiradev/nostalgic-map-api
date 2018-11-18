@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface PlaceRepository extends JpaRepository<Place, Long> {
 
-    List<Place> findByPersonId(Long person_id);
+    Place findByPersonId(Long personId);
+
+    List<Place> findAllByPersonId(Long personId);
 
 }
