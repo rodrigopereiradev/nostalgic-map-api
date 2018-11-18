@@ -2,10 +2,7 @@ package br.com.rodrigo.nostalgicmapapi.models;
 
 import br.com.rodrigo.nostalgicmapapi.models.commons.BaseEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -19,12 +16,12 @@ public class Person extends BaseEntity implements Serializable {
 
     private LocalDate birth;
 
-    @JoinColumn
     @OneToOne
+    @JoinColumn
     private Email email;
 
     @JoinColumn
-    @OneToMany
+    @OneToMany(mappedBy = "person")
     private List<Place> places;
 
     public String getName() {

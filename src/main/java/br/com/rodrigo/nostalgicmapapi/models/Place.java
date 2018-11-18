@@ -4,6 +4,7 @@ import br.com.rodrigo.nostalgicmapapi.models.commons.BaseEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.io.Serializable;
 
@@ -21,6 +22,10 @@ public class Place extends BaseEntity implements Serializable {
     @JoinColumn
     @OneToOne
     private Location location;
+
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    private Person person;
 
     public String getTitle() {
         return title;
